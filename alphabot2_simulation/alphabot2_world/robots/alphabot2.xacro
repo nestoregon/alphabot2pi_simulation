@@ -1,0 +1,213 @@
+<?xml version="1.0" ?>
+
+<robot name="alphabot2" xmlns:xacro="https://www.ros.org/wiki/xacro" >
+  <xacro:include filename="$(find alphabot2_world)/robots/materials.xacro" />
+  <xacro:include filename="$(find alphabot2_world)/robots/gazebo.xacro" />
+  <xacro:include filename="$(find alphabot2_world)/robots/wheel_macro.xacro" />
+  <xacro:include filename="$(find alphabot2_world)/robots/caster_macro.xacro" />
+
+  <!-- chassis -->
+  <link name="link_chassis">
+    <!-- pose and inertial -->
+    <pose>0 0 0 0 0 0</pose>
+    <inertial>
+      <mass value="0.145"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.0395416666667" ixy="0" ixz="0" iyy="0.106208333333" iyz="0" izz="0.106208333333"/>
+    </inertial>
+    <!-- end of pose and inertial -->
+
+    <!-- chassis collision and visual -->
+    <collision name="collision_chassis">
+      <geometry>
+        <cylinder radius="0.055" length="0.045"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 -0.0065"/>
+      <geometry>
+        <cylinder radius="0.055" length="0.045"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <!-- end of chassis collision and visual -->
+
+    <!-- caster front -->
+    <xacro:caster name="caster_front"  origin_xyz="0.05 0 -0.03"  />
+    <!-- end of caster front -->
+
+    <!-- caster back -->
+    <xacro:caster name="caster_back"  origin_xyz="-0.05 0 -0.03"  />
+    <!-- end of caster back -->
+  </link>
+  <!-- end of chassis -->
+
+  <!-- right wheel -->
+  <xacro:link_wheel name="link_right_wheel" />
+  <!-- end of right wheel -->
+
+  <!-- joint for right wheel -->
+  <xacro:joint_wheel name="joint_right_wheel"  child="link_right_wheel"  origin_xyz="0 0.046 -0.016"  />
+  <!-- end of joint for right wheel -->
+
+  <!-- left wheel -->
+  <xacro:link_wheel name="link_left_wheel" />
+  <!-- end of left wheel -->
+
+  <!-- joint for left wheel -->
+  <xacro:joint_wheel name="joint_left_wheel"   child="link_left_wheel"   origin_xyz="0 -0.046 -0.016"  />
+  <!-- end of joint for left wheel -->
+
+  <!-- Lower Camera-->
+  <link name="lower_camera_link">
+    <inertial>
+      <mass value="0.0225"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.0000058388" ixy="0" ixz="0" iyy="0.0000063638" iyz="0" izz="0.0000046088"/>
+    </inertial>
+    <collision name="lower_camera_collision">
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <box size="0.037 0.033 0.045"/>
+      </geometry>
+    </collision>
+    <visual name="lower_camera_visual">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.037 0.033 0.045"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="joint_lower_camera_link" type="continuous"><!--AQUI USAM REVOLUTE -->
+    <origin rpy="0 0 0" xyz="0 0 0.045"/>
+    <child link="lower_camera_link" />
+    <parent link="link_chassis"/>
+    <axis rpy="0 0 0" xyz="0 0 1"/>
+    <limit effort="30" velocity="1" lower="-1.57" upper="1.57"/>
+    <dynamics dampling="2" friction="2"/>
+  </joint>
+
+  <gazebo reference="lower_camera_link">
+        <material>Gazebo/Yellow</material>
+        <!--selfCollide>false</selfCollide>
+        <turnGravityOff>true</turnGravityOff-->
+  </gazebo>
+
+  <transmission name="pan_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_lower_camera_link">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="camera_pan_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!--End Lower Camera-->
+
+
+  <!--Upper Camera-->
+  <link name="upper_camera_link">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <inertial>
+      <mass value="0.0225"/>
+      <origin rpy="0 0 0" xyz="0 0 0 "/>
+      <inertia ixx="0.0000058388" ixy="0" ixz="0" iyy="0.0000063638" iyz="0" izz="0.0000046088"/>
+    </inertial>
+    <collision name="upper_camera_collision">
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <box size="0.037 0.033 0.045"/>
+      </geometry>
+    </collision>
+    <visual name="upper_camera_visual">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.037 0.033 0.045"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <gazebo reference="upper_camera_link">
+        <material>Gazebo/Yellow</material>
+        <!--selfCollide>true</selfCollide>
+        <turnGravityOff>true</turnGravityOff-->
+  </gazebo>
+
+  <joint name="joint_upper_camera_link" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0 0.045"/> <!--0.045-->
+    <child link="upper_camera_link" />
+    <parent link="lower_camera_link"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit effort="30" velocity="1" lower="-1.57" upper="1.57"/>
+    <dynamics dampling="2" friction="2"/>
+  </joint>
+
+  <transmission name="tilt_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_upper_camera_link">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="camera_tilt_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <!--End Upper Camera-->
+
+
+  <!--For all the transmission tags; links gazebo with ROS-->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/alphabot2</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <!-- camera -->
+  <gazebo reference="upper_camera_link">
+    <sensor name="alphabot2_camera" type="camera" >
+      <visualize>1</visualize>
+      <always_on>1</always_on>
+      <update_rate>30.0</update_rate>
+      <camera name="alphabot2_camera">
+      <origin rpy="0 ${3.14/2} 0" xyz="0.015 0 0.045"/>
+        <save enabled="true">
+          <path>/tmp/</path>
+        </save>
+        <horizontal_fov>1.08504</horizontal_fov>
+        <image>
+          <width>160</width>
+          <height>120</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.01</near>
+          <far>1000</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <cameraName>alphabot2_camera/</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+</robot>
