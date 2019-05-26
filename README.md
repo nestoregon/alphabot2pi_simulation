@@ -16,3 +16,7 @@ roslaunch alphabot2_world spawn_world.launch
 roslaunch alphabot2_world spawn_robot.launch
 
 roslaunch sim_control computer.launch
+
+## Instructions
+Create a ball object inside Gazebo with a Hue value of 220 (dark blue).
+Select the last terminal window. More instructions on how to move the robot under alphabot2_simulation/sim_control/src/remote_node.py
