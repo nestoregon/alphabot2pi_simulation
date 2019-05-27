@@ -7,7 +7,7 @@ ROS and Gazebo must be installed before completing the following steps
 Create catkin workspace and install repository
 git clone https://github.com/nestoregon/alphabot2pi_simulation/
 
-change the name to src
+Change the name to src
 ```
 mv alphabot2pi_simulation src 
 ```
