@@ -4,7 +4,7 @@ This is the code used to run the simulation of the AlphaBot2pi using ROS and Gaz
 ROS and Gazebo must be installed before completing the following steps
 
 ## Installation
-Create catkin workspace
+Create catkin workspace. Make sure you are in a path where you want your worskpace to be and run the following commands on the terminal.
 ```
 mkdir github_simulation_ws
 
