@@ -87,9 +87,9 @@ def image_callback(data):
 
 	# image = imutils.resize(image, width=500)
 	# mask = imutils.resize(mask, width=500)
-	# cv2.imshow('image',image)
-	# cv2.imshow('mask',mask)
-	# cv2.waitKey(5)
+	cv2.imshow('image',image)
+	cv2.imshow('mask',mask)
+	cv2.waitKey(5)
 
 if __name__ == '__main__':
 	global counter, X, Y, cX, cY, pub, area
