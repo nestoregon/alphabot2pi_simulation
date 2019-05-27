@@ -4,8 +4,12 @@ This is the code used to run the simulation of the AlphaBot2pi using ROS and Gaz
 ROS and Gazebo must be installed before completing the following steps
 
 ## Intallation
-Create catkin workspace and install repository inside "src" file
+Create catkin workspace and install repository
+git clone https://github.com/nestoregon/alphabot2pi_simulation/
 
+Change the name of the folder for "src":
+
+mv alphabot2pi_simulation src
 Run catkin_make to create "build" and "devel"
 
 Run source devel/setup.bash
