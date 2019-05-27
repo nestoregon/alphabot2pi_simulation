@@ -51,7 +51,17 @@ roslaunch sim_control computer.launch
 Create a ball object inside Gazebo with a Hue value of 220 (dark blue).
 Select the last terminal window. More instructions on how to move the robot under alphabot2_simulation/sim_control/src/remote_node.py
 
+## Future work
+You can add as many input and output nodes as you like.
+* Modify the control_robot_node.py code to set new algorithms. Brain of the robot. Set speeds. Set frequency. 
+* Modify the remote_node.py node to set new keys and publish new topics
+* Modify the find_ball_blue_node.py to set new values for different colors to find
+
 ## Authors
 
 * **Nestor Morales** - *Control Code and Gazebo Simulation* - [nestoregon](https://github.com/nestoregon)
 * **Manuel Serrano** - *Control Code and Gazebo Simulation*
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
