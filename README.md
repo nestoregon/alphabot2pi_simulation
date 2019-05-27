@@ -61,7 +61,3 @@ You can add as many input and output nodes as you like.
 
 * **Nestor Morales** - *Control Code and Gazebo Simulation* - [nestoregon](https://github.com/nestoregon)
 * **Manuel Serrano** - *Control Code and Gazebo Simulation*
-
-## Acknowledgments
-
-Hat tip to [azazdeaz](https://github.com/azazdeaz) whose code was used in the development of this project
