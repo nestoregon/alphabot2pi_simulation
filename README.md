@@ -10,6 +10,7 @@ git clone https://github.com/nestoregon/alphabot2pi_simulation/
 Change the name of the folder for "src":
 
 mv alphabot2pi_simulation src
+
 Run catkin_make to create "build" and "devel"
 
 Run source devel/setup.bash
