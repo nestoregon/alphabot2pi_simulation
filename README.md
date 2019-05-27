@@ -64,4 +64,4 @@ You can add as many input and output nodes as you like.
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
+Hat tip to [azazdeaz](https://github.com/azazdeaz) whose code was used in the development of this project
