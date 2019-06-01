@@ -6,9 +6,9 @@ ROS and Gazebo must be installed before completing the following steps
 ## Installation
 Create catkin workspace. Make sure you are in a path where you want your worskpace to be and run the following commands on the terminal.
 ```
-mkdir github_simulation_ws
+mkdir alphabot2pi_simulation_ws
 
-cd github_simulation_ws
+cd alphabot2pi_simulation_ws
 
 git clone https://github.com/nestoregon/alphabot2pi_simulation/
 
