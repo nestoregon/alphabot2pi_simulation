@@ -4,29 +4,29 @@ This is the code used to run the simulation of the AlphaBot2pi using ROS and Gaz
 ROS and Gazebo must be installed before completing the following steps
 
 ## Installation
-Create catkin workspace. Make sure you are in a path where you want your worskpace to be and run the following commands on the terminal.
+1. Create catkin workspace. Make sure you are in a path where you want your worskpace to be and run the following commands on the terminal.
 ```
 mkdir alphabot2pi_simulation_ws
 cd alphabot2pi_simulation_ws
 git clone https://github.com/nestoregon/alphabot2pi_simulation/
 ```
-Change the name to src
+2. Change the name to src. The file downloaded from GitHub has to change its name to src.
 ```
 mv alphabot2pi_simulation src 
 ```
-Create build and devel files
+3. Create build and devel files. The following command creates all the necessary build and devel files. This is why you only need to download the src, the other files are automatically generated after the following command
 ```
 catkin_make
 ```
-Source the workspace
+4. Source the workspace. To be able to use ```roslaunch``` ```roscd``` or ```rosrun``` the workspace must be sourced. Note: each new terminal window will not be sourced unless you edit the ~/.bashrc file, further details below.
 ```
 source devel/setup.bash
 ```
-Go to the directory with control nodes
+5. Go to the directory with control nodes
 ```
 cd src/alphabot2_simulation/sim_control/src
 ```
-Make the code executable
+6. Make the code executable. The code will not work unless it is executable.
 ```
 chmod  +x control_robot_node.py find_ball_blue_node.py servo_node.py drive_node.py remote_node.py
 ```
@@ -45,10 +45,14 @@ These lines need to be commented **IF** they are written:
 # export ROS_MASTER_URI=http://ipAddressRaspberry:11311
 # export ROS_IP=ipAddressComputer
 ```
+Run the /.bashrc file again to update the changes
+```
+source ~/.bashrc
+```
 
 ## Run the code
 
-You have to open multiple terminals to run the code. Keep in mind that you will have to source the workspace AGAIN for every new terminal window you open (source devel/setup.bash inside the worskpace). Now you're ready to run the code!
+You have to open multiple terminals to run the code. If you havent't carried out the previous step keep in mind that you will have to source the workspace AGAIN for every new terminal window you open (source devel/setup.bash inside the workspace). Now you're ready to run the code!
 ```
 roslaunch alphabot2_world spawn_world.launch
 
@@ -66,7 +70,7 @@ More instructions on how to move the robot under alphabot2_simulation/sim_contro
 
 ## Future work
 You can add as many input and output nodes as you like.
-* Modify the control_robot_node.py code to set new algorithms. Brain of the robot. Set speeds. Set frequency. 
+* Modify the control_robot_node.py code to set new algorithms. The brain of the robot. Set speeds. Set frequency. 
 * Modify the remote_node.py node to set new keys and publish new topics
 * Modify the find_ball_blue_node.py to set new values for different colors to find
 
