@@ -41,7 +41,7 @@ Open nano (or your favorite editor) to edit the /.bashrc file
 ```
 nano ~/.bashrc
 ```
-Write the following lines at the bottom of the /.bashrc file. This is done to source the workspace. **NOTE: change the path for your own workspace path!** MODEL: */home/usr/path/alphabot2pi_simulation_ws/devel/setup.bash/*
+Write the following lines at the bottom of the /.bashrc file. This is done to source the workspace. **NOTE: change the path for your own workspace path!** MODEL: */home/username/path/alphabot2pi_simulation_ws/devel/setup.bash/*
 ```
 # Identify the workspace every time the terminal is opened
 source /home/nestoregon/ROS/alphabot2pi_simulation_ws/devel/setup.bash
