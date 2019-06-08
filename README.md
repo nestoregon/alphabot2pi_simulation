@@ -32,6 +32,20 @@ chmod  +x control_robot_node.py find_ball_blue_node.py servo_node.py drive_node.
 ```
 Type "ls" on the terminal to confirm that all the code is green! This means that we can run the code.
 
+## Configure /.bashrc files. ROS_MASTER and ROS_URI
+Write the following at the bottom of the /.bashrc file. This is done to source the workspace (**NOTE: change the path for your own workspace path!**)
+```
+# Identify the workspace every time the terminal is opened
+source /home/nestoregon/ROS/alphabot2pi_real_ws/devel/setup.bash
+```
+Unlike the real robot control, in the simulation there is no need to set up a ROS_MASTER and a ROS_URI, because you will be running the simulation locally. If you are running the simulation after the real robot control **comment** the commands. NOTE: **uncomment** the commands if you are going to run the real robot control.
+These lines need to be commented **IF** they are written:
+```
+# office
+# export ROS_MASTER_URI=http://ipAddressRaspberry:11311
+# export ROS_IP=ipAddressComputer
+```
+
 ## Run the code
 
 You have to open multiple terminals to run the code. Keep in mind that you will have to source the workspace AGAIN for every new terminal window you open (source devel/setup.bash inside the worskpace). Now you're ready to run the code!
@@ -45,7 +59,10 @@ roslaunch sim_control computer.launch
 
 ## Instructions
 Create a ball object inside Gazebo with a Hue value of 220 (dark blue).
-Select the last terminal window. More instructions on how to move the robot under alphabot2_simulation/sim_control/src/remote_node.py
+Select the last terminal window. 
+* **Task 1: Manual Mode** Use the keys to manually control the robot
+* **Task 2: Ball Following Drive** The robot uses the wheels to follow a blue ball
+More instructions on how to move the robot under alphabot2_simulation/sim_control/src/remote_node.py
 
 ## Future work
 You can add as many input and output nodes as you like.
