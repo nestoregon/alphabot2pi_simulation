@@ -30,7 +30,10 @@ cd src/alphabot2_simulation/sim_control/src
 ```
 chmod  +x control_robot_node.py find_ball_blue_node.py servo_node.py drive_node.py remote_node.py
 ```
-Type "ls" on the terminal to confirm that all the code is green! This means that we can run the code.
+Type "ls" on the terminal to confirm that all the code is green! This means that we can run the code. You should see something like this:
+```diff
++ control_robot_node.py find_ball_blue_node.py servo_node.py drive_node.py remote_node.py
+```
 
 ## Configure /.bashrc files. ROS_MASTER and ROS_URI
 Write the following at the bottom of the /.bashrc file. This is done to source the workspace (**NOTE: change the path for your own workspace path!**)
