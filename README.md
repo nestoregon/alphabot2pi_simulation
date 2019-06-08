@@ -12,7 +12,7 @@ git clone https://github.com/nestoregon/alphabot2pi_simulation/
 ```
 2. Change the name to src. The file downloaded from GitHub has to change its name to src.
 ```
-mv alphabot2pi_simulation src 
+mv alphabot2pi_simulation src
 ```
 3. Create build and devel files. The following command creates all the necessary build and devel files. This is why you only need to download the src, the other files are automatically generated after the following command
 ```
@@ -62,20 +62,20 @@ roslaunch sim_control computer.launch
 ```
 
 ## Instructions
-Create a ball object inside Gazebo with a Hue value of 220 (dark blue). The find_ball_blue_node.py uses the HSV color system. However, Gazebo uses the RGB. A blue ball of 4cm in diameter has to be created in Gazebo in order to follow the ball.
+Create a ball object inside Gazebo with a Hue value of 220 (dark blue). The find_ball_blue_node.py uses the HSV color system. However, Gazebo uses the RGB. A blue ball of 4cm in diameter has to be created in Gazebo in order to follow the ball. HSV, HEX and RGB colors:
 
 ![#365FB3](https://placehold.it/15/365FB3/000000?text=+) `HSV: 220, 70%, 70%`, `HEX: 365FB3`, `RGB: 54, 95, 179`
 
 Create the ball inside the simulation. Everything is ready!
 
-Select the last terminal window. 
+Select the last terminal window.
 * **Task 1: Manual Mode** Use the keys to manually control the robot
 * **Task 2: Ball Following Drive** The robot uses the wheels to follow a blue ball
 More instructions on how to move the robot under alphabot2_simulation/sim_control/src/remote_node.py
 
 ## Future work
 You can add as many input and output nodes as you like.
-* Modify the control_robot_node.py code to set new algorithms. The brain of the robot. Set speeds. Set frequency. 
+* Modify the control_robot_node.py code to set new algorithms. The brain of the robot. Set speeds. Set frequency.
 * Modify the remote_node.py node to set new keys and publish new topics
 * Modify the find_ball_blue_node.py to set new values for different colors to find
 
