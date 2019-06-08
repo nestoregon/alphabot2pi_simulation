@@ -63,6 +63,8 @@ roslaunch sim_control computer.launch
 
 ## Instructions
 Create a ball object inside Gazebo with a Hue value of 220 (dark blue).
+
+![#365FB3](https://placehold.it/15/365FB3/000000?text=+) `HSV: 220, 70%, 70%`, `HEX: 365FB3`, `RGB: 54, 95, 179`
 Select the last terminal window. 
 * **Task 1: Manual Mode** Use the keys to manually control the robot
 * **Task 2: Ball Following Drive** The robot uses the wheels to follow a blue ball
