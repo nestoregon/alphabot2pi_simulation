@@ -62,9 +62,11 @@ roslaunch sim_control computer.launch
 ```
 
 ## Instructions
-Create a ball object inside Gazebo with a Hue value of 220 (dark blue). As shown below
+Create a ball object inside Gazebo with a Hue value of 220 (dark blue). The find_ball_blue_node.py uses the HSV color system. However, Gazebo uses the RGB. A blue ball of 4cm in diameter has to be created in Gazebo in order to follow the ball.
 
 ![#365FB3](https://placehold.it/15/365FB3/000000?text=+) `HSV: 220, 70%, 70%`, `HEX: 365FB3`, `RGB: 54, 95, 179`
+
+Create the ball inside the simulation. Everything is ready to use the simulation!
 
 Select the last terminal window. 
 * **Task 1: Manual Mode** Use the keys to manually control the robot
