@@ -46,6 +46,8 @@ Write the following lines at the bottom of the /.bashrc file. This is done to so
 # Identify the workspace every time the terminal is opened
 source /home/nestoregon/ROS/alphabot2pi_simulation_ws/devel/setup.bash
 ```
+Do not close the ~/.bashrc yet.
+
 **IMPORTANT:** Unlike the real robot control, in the simulation there is **NO** need to set up a ROS_MASTER and a ROS_URI, because you will be running the simulation locally. If you are running the simulation after the real robot control **comment** the commands. NOTE: **uncomment** the commands if you are going to run the real robot control.
 These lines need to be commented **IF** they are written:
 ```
