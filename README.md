@@ -1,4 +1,4 @@
-# alphabot2pi ROS simulation
+# Alphabot2pi ROS simulation
 This is the code used to run the simulation of the AlphaBot2pi using ROS and Gazebo
 
 ROS and Gazebo must be installed before completing the following steps
