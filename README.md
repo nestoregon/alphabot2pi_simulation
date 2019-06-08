@@ -62,7 +62,7 @@ roslaunch sim_control computer.launch
 ```
 
 ## Instructions
-Create a ball object inside Gazebo with a Hue value of 220 (dark blue). The find_ball_blue_node.py uses the HSV color system. However, Gazebo uses the RGB. A blue ball of 4cm in diameter has to be created in Gazebo in order to follow the ball. HSV, HEX and RGB colors:
+Create a blue ball of 4cm in diameter inside Gazebo. The find_ball_blue_node.py uses the HSV color system to locate the ball. However, Gazebo uses the RGB to create it. HSV, HEX and RGB values:
 
 ![#365FB3](https://placehold.it/15/365FB3/000000?text=+) `HSV: 220, 70%, 70%`, `HEX: 365FB3`, `RGB: 54, 95, 179`
 
