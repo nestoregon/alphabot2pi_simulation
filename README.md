@@ -53,6 +53,12 @@ These lines need to be commented **IF** they are written:
 # export ROS_MASTER_URI=http://ipAddressRaspberry:11311
 # export ROS_IP=ipAddressComputer
 ```
+Save changes
+```
+Ctrl + x
+y
+Enter
+```
 Run the /.bashrc file again to update the changes
 ```
 source ~/.bashrc
