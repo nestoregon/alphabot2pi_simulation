@@ -71,7 +71,9 @@ Create the ball inside the simulation. Everything is ready!
 Select the last terminal window.
 * **Task 1: Manual Mode** Use the keys to manually control the robot
 * **Task 2: Ball Following Drive** The robot uses the wheels to follow a blue ball
-More instructions on how to move the robot under alphabot2_simulation/sim_control/src/remote_node.py
+
+To move the robot you will have to select the last window where you run the command: ```roslaunch sim_control computer.launch``` More instructions on how to move the robot under alphabot2_simulation/sim_control/src/remote_node.py
+
 
 ## Future work
 You can add as many input and output nodes as you like.
