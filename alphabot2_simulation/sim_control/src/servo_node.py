@@ -6,9 +6,12 @@ import smbus
 import rospy
 from geometry_msgs.msg import Point
 
-# ============================================================================
-# Raspi PCA9685 16-Channel PWM Servo Driver
-# ============================================================================
+# To be implemented on Gazebo
+"""
+Autonomous Robotic Platforms
+Servo Node
+Reference: https://github.com/nestoregon/alphabot2pi_simulation
+"""
 
 class PCA9685:
 
@@ -28,6 +31,7 @@ class PCA9685:
   __ALLLED_OFF_H       = 0xFD
 
   def __init__(self, address=0x40, debug=False):
+    # initialize nodes and topics
     rospy.init_node("servo", anonymous=False)
     sub = rospy.Subscriber("/servo_location", Point, self.callback)
     self.bus = smbus.SMBus(1)
@@ -38,10 +42,13 @@ class PCA9685:
     self.write(self.__MODE1, 0x00)
 
   # ROS callback function
+  # x & y values correspond to the x & y axis servos
   def callback(self, data):
     x = int(data.x)
     y = int(data.y)
+    # 0 refers to the bottom servo (x axis)
     self.setServoPulse(0, x)
+    # 1 refers to the bottom servo (x axis)
     self.setServoPulse(1, y)
 
   def write(self, reg, value):

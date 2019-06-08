@@ -13,9 +13,12 @@ ENA = 6
 ENB = 26
 PA  = 50
 PB  = 50
-
+"""
+Autonomous Robotic Platforms
+Drive Node
+Reference: https://github.com/azazdeaz/alphabot2-ros/
+"""
 class driver:
-  """ Class to control the real robot. Reference: https://github.com/azazdeaz/alphabot2-ros/"""
   def __init__(self):
     self.IN1 = 13
     self.IN2 = 12

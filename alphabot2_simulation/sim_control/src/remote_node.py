@@ -3,9 +3,15 @@
 import rospy
 from std_msgs.msg import String
 import time
-
 import sys, select, termios, tty
 
+"""
+Autonomous Robotic Platforms
+Remote Node
+Reference: https://github.com/nestoregon/alphabot2pi_simulation
+"""
+
+#message to displayed at the beginning
 msg = """
 Reading from the keyboard and publishing to /remote_state and /remote_key
 ---------------------------
@@ -37,13 +43,13 @@ def getKey():
 
 if __name__=="__main__":
     settings = termios.tcgetattr(sys.stdin)
-
     n = 0
+    # Initialize node and topics
     rospy.init_node("remote_node", anonymous=False)
     pubDirection = rospy.Publisher("/remote_key", String, queue_size=5)
     pubState = rospy.Publisher("/remote_state", String, queue_size=5)
 
-
+    # loop to read the key pressed and publish it into the /remote_key or /remote_state topic
     while not rospy.is_shutdown():
         key = getKey()
         print(key)

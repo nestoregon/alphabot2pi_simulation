@@ -1,6 +1,6 @@
 <launch>
+  <!-- launch file containing the find_ball, control and remote nodes -->
   <node pkg="sim_control" type="find_ball_blue_node.py" name="find_ball_node"/>
   <node pkg="sim_control" type="control_robot_node.py" name="control_node"/>
   <node pkg="sim_control" type="remote_node.py" name="remote_node"/>
 </launch>
-

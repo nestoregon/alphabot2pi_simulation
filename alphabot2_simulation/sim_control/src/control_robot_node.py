@@ -11,32 +11,28 @@ from std_msgs.msg import Float32
 from sensor_msgs.msg import CompressedImage
 import time
 
-# BALL FOLLOWING DRIVE
-# Robot movement depending on ball postition within the image
-# Ball position is normalized (CENTER=0,0)
-# width=(-0.5,+0.5), height=(-0.5,+0.5)
-
-#  L+F |  FRWD  |  F+R
-#------|--------|------  +0.3
-# LEFT | CENTER | R#IGHT
-#------|--------|------  +0.35
-#  L+B |  BACK  |  B+R
-#
-#   -0.10     +0.10
+# Implement servo following drive on Gazebo
+"""
+Autonomous Robotic Platforms
+Control Node
+Reference: https://github.com/nestoregon/alphabot2pi_simulation
+"""
 
 class Control:
     """Control node class"""
     def __init__(self):
-        # subscribers
-        self.sub_ball_red = rospy.Subscriber("/ball_red_location", Point, self.callback_red)
+        # subscribers implemented
         self.sub_ball_blue = rospy.Subscriber("/ball_blue_location", Point, self.callback_blue)
-        self.sub_collision = rospy.Subscriber("/collision", String, self.callback_collision)
         self.sub_remote_key  = rospy.Subscriber("/remote_key", String, self.callback_remote_key)
         self.sub_remote_state  = rospy.Subscriber("/remote_state", String, self.callback_remote_state)
-        self.sub_line_following = rospy.Subscriber("/line_following", Float32, self.callback_line_following)
         # publishers
         self.pub_cmd_vel = rospy.Publisher("/cmd_vel", Twist, queue_size=5)
         self.pub_servo = rospy.Publisher("/servo_location", Point, queue_size=5)
+        # Possible future implementations
+        self.sub_line_following = rospy.Subscriber("/line_following", Float32, self.callback_line_following)
+        self.sub_collision = rospy.Subscriber("/collision", String, self.callback_collision)
+        self.sub_ball_red = rospy.Subscriber("/ball_red_location", Point, self.callback_red)
+
 
         self.vel = Twist()
         self.servo = Point()
@@ -101,6 +97,19 @@ class Control:
         # servo stops
         self.servo.x, self.servo.y = 0,0
 
+    # BALL FOLLOWING DRIVE
+    # Robot movement depending on ball postition within the image
+    # Ball position is normalized (CENTER=0,0)
+    # width=(-0.5,+0.5), height=(-0.5,+0.5)
+
+    #  L+F |  FRWD  |  F+R
+    #------|--------|------  +0.3
+    # LEFT | CENTER | R#IGHT
+    #------|--------|------  +0.35
+    #  L+B |  BACK  |  B+R
+    #
+    #   -0.10     +0.10
+
     def ball_following_servo(self):
         if self.blue_x < 0 and self.blue_y < 0:
             # There is no ball, spin until you find it
@@ -146,6 +155,7 @@ class Control:
             elif self.servo.y < 500:
                 self.servo.y = 500
 
+    # to be implemented on Gazebo
     def ball_following_drive(self):
 
         if self.blue_x < 0 and self.blue_y < 0:
