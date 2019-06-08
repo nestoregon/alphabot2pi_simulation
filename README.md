@@ -9,7 +9,6 @@ Create catkin workspace. Make sure you are in a path where you want your worskpa
 mkdir alphabot2pi_simulation_ws
 cd alphabot2pi_simulation_ws
 git clone https://github.com/nestoregon/alphabot2pi_simulation/
-
 ```
 Change the name to src
 ```
