@@ -41,10 +41,10 @@ Open nano (or your favorite editor) to edit the /.bashrc file
 ```
 nano ~/.bashrc
 ```
-Write the following lines at the bottom of the /.bashrc file. This is done to source the workspace (**NOTE: change the path for your own workspace path!**)
+Write the following lines at the bottom of the /.bashrc file. This is done to source the workspace. **NOTE: change the path for your own workspace path!** MODEL: */home/usr/path/alphabot2pi_simulation_ws/devel/setup.bash/*
 ```
 # Identify the workspace every time the terminal is opened
-source /home/nestoregon/ROS/alphabot2pi_real_ws/devel/setup.bash
+source /home/nestoregon/ROS/alphabot2pi_simulation_ws/devel/setup.bash
 ```
 Unlike the real robot control, in the simulation there is no need to set up a ROS_MASTER and a ROS_URI, because you will be running the simulation locally. If you are running the simulation after the real robot control **comment** the commands. NOTE: **uncomment** the commands if you are going to run the real robot control.
 These lines need to be commented **IF** they are written:
