@@ -10,27 +10,29 @@ mkdir alphabot2pi_simulation_ws
 
 cd alphabot2pi_simulation_ws
 
+git clone https://github.com/UbiquityRobotics/raspicam_node.git
+
 git clone https://github.com/nestoregon/alphabot2pi_simulation/
 
 ```
 
-#### Change the name to src
+Change the name to src
 ```
 mv alphabot2pi_simulation src 
 ```
-#### Create build and devel files
+Create build and devel files
 ```
 catkin_make
 ```
-#### Source the workspace
+Source the workspace
 ```
 source devel/setup.bash
 ```
-#### Go to the directory with control nodes
+Go to the directory with control nodes
 ```
 cd src/alphabot2_simulation/sim_control/src
 ```
-#### Make the code executable
+Make the code executable
 ```
 chmod  +x control_robot_node.py find_ball_blue_node.py servo_node.py drive_node.py remote_node.py
 ```
