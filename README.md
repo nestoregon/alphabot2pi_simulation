@@ -7,15 +7,10 @@ ROS and Gazebo must be installed before completing the following steps
 Create catkin workspace. Make sure you are in a path where you want your worskpace to be and run the following commands on the terminal.
 ```
 mkdir alphabot2pi_simulation_ws
-
 cd alphabot2pi_simulation_ws
-
-git clone https://github.com/UbiquityRobotics/raspicam_node.git
-
 git clone https://github.com/nestoregon/alphabot2pi_simulation/
 
 ```
-
 Change the name to src
 ```
 mv alphabot2pi_simulation src 
