@@ -32,7 +32,7 @@ chmod  +x control_robot_node.py find_ball_blue_node.py servo_node.py drive_node.
 ```
 Type "ls" on the terminal to confirm that all the code is green! This means that we can run the code. You should see something like this:
 ```diff
-- control_robot_node.py find_ball_blue_node.py servo_node.py drive_node.py remote_node.py
++ $ control_robot_node.py find_ball_blue_node.py servo_node.py drive_node.py remote_node.py
 ```
 
 ## Configure /.bashrc files. ROS_MASTER and ROS_URI
